@@ -24,5 +24,16 @@ namespace WindowsFormsApp1 {
             tbAns.Text = sum.ToString();
 
         }
+
+        //イベントハンドラ
+        private void btPow_Click(object sender, EventArgs e) {
+
+            double result = Math.Pow((double)x.Value,(double)y.Value);
+            tbResult.Text = result.ToString();
+
+
+        }
+
+        
     }
 }
