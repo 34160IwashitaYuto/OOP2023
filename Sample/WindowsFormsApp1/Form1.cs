@@ -15,7 +15,6 @@ namespace WindowsFormsApp1 {
         }
 
         private void button1_Click(object sender, EventArgs e) {
-
             //int ans = int.Parse(tbNum1.Text) + int.Parse(tbNum2.Text);
             //tbAns.Text = ans.ToString();
 
