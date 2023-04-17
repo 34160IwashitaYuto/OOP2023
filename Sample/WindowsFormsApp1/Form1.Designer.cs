@@ -28,7 +28,7 @@ namespace WindowsFormsApp1 {
             this.btbutton = new System.Windows.Forms.Button();
             this.tbNum2 = new System.Windows.Forms.TextBox();
             this.tbNum1 = new System.Windows.Forms.TextBox();
-            this.tbAncer = new System.Windows.Forms.TextBox();
+            this.tbAns = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -59,13 +59,13 @@ namespace WindowsFormsApp1 {
             this.tbNum1.Size = new System.Drawing.Size(144, 34);
             this.tbNum1.TabIndex = 1;
             // 
-            // tbAncer
+            // tbAns
             // 
-            this.tbAncer.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbAncer.Location = new System.Drawing.Point(616, 43);
-            this.tbAncer.Name = "tbAncer";
-            this.tbAncer.Size = new System.Drawing.Size(144, 34);
-            this.tbAncer.TabIndex = 1;
+            this.tbAns.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.tbAns.Location = new System.Drawing.Point(616, 43);
+            this.tbAns.Name = "tbAns";
+            this.tbAns.Size = new System.Drawing.Size(144, 34);
+            this.tbAns.TabIndex = 1;
             // 
             // label1
             // 
@@ -93,7 +93,7 @@ namespace WindowsFormsApp1 {
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbNum1);
-            this.Controls.Add(this.tbAncer);
+            this.Controls.Add(this.tbAns);
             this.Controls.Add(this.tbNum2);
             this.Controls.Add(this.btbutton);
             this.Name = "Form1";
@@ -108,7 +108,7 @@ namespace WindowsFormsApp1 {
         private System.Windows.Forms.Button btbutton;
         private System.Windows.Forms.TextBox tbNum2;
         private System.Windows.Forms.TextBox tbNum1;
-        private System.Windows.Forms.TextBox tbAncer;
+        private System.Windows.Forms.TextBox tbAns;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }
