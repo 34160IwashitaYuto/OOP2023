@@ -14,14 +14,22 @@ namespace BallApp {
         private double posX;    //x座表
         private double posY;    //y座表
 
-        private double moveX = 15.0;//移動量
-        private double moveY = 15.0;
+        private double moveX;//移動量
+        private double moveY;//移動量
 
-        public SoccerBall() {
+        public SoccerBall(double xp,double yp) {
+            Random random = new Random();
             Image = Image.FromFile(@"pic\soccer_ball.png");
-            PosX = 0.0;
-            PosY = 0.0;
-            
+            PosX = xp;
+            PosY = yp;
+
+
+            int rndX = random.Next(-15, 15);
+            moveX = (rndX != 0 ? rndX : 1);
+            int rndY = random.Next(-15, 15);
+            moveX = (rndY != 0 ? rndY : 1);
+
+          
         }
 
         //プロパティ
