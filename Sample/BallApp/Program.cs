@@ -13,6 +13,8 @@ namespace BallApp {
         private List<SoccerBall> balls = new List<SoccerBall>();    //ボールインスタンス格納用
         private List<PictureBox> pbs = new List<PictureBox>();  //表示用
 
+        private int cnt = 0;
+
         static void Main(string[] args) {
             Application.Run(new Program());
         }
@@ -21,14 +23,16 @@ namespace BallApp {
  
             this.Size = new Size(800, 600);
             this.BackColor = Color.Green;
-            this.Text = "BallGame";
+
+            
+
             this.MouseClick += Program_MouseClick;
 
-           
+            
 
 
             moveTimer = new Timer();
-            moveTimer.Interval = 1; //タイマーのインターバル(ms)
+            moveTimer.Interval = 10; //タイマーのインターバル(ms)
             
             moveTimer.Tick += MoveTimer_Tick;   //デリゲート登録
         }
@@ -48,7 +52,10 @@ namespace BallApp {
 
             balls.Add(soccerBall);
             pbs.Add(pb);
+
+            this.Text = "BallGame" + (++cnt);
             
+
             moveTimer.Start();  //タイマースタート
         }
 
