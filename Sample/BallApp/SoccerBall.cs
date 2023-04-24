@@ -27,7 +27,7 @@ namespace BallApp {
             int rndX = random.Next(-15, 15);
             moveX = (rndX != 0 ? rndX : 1);
             int rndY = random.Next(-15, 15);
-            moveX = (rndY != 0 ? rndY : 1);
+            moveY = (rndY != 0 ? rndY : 1);
 
           
         }
