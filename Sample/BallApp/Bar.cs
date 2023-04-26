@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BallApp {
-    class Bar : Obj {     
+    class Bar : Obj {
         
         public Bar(double xp,double yp)
             : base(350, 400, @"pic\bar.png") {
@@ -15,11 +15,11 @@ namespace BallApp {
         }
 
         //親クラスを継承しているので、不要なメソッドは空にする
-        public override void Move() {
+        public override void Move(PictureBox pbBar, PictureBox pbBall) {
             ;//からのメソッドにする
         }
 
-        public void Move(Keys direction) {
+        public override void Move(Keys direction) {
             if(direction == Keys.Right)
             {
                 if (PosX < 635)
@@ -36,6 +36,5 @@ namespace BallApp {
             }
         }
 
-        
     }
 }
