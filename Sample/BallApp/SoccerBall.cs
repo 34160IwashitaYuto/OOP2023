@@ -43,7 +43,7 @@ namespace BallApp {
 
             Console.WriteLine("posX = {0},posY = {1}",PosX,PosY);
 
-            if (PosY > 550 || PosY < 0 || rBar.IntersectsWith(rBar))
+            if (PosY > 550 || PosY < 0 || rBar.IntersectsWith(rBall))
             {
                 MoveY = -MoveY;
             }
