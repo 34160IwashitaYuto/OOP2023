@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 namespace BallApp {
     class TennisBall : Obj {
 
+        private static int count;
+
+
         Random random = new Random();   //乱数のインスタンス
 
         public TennisBall(double xp, double yp)
@@ -16,8 +19,10 @@ namespace BallApp {
             MoveX = (rndX != 0 ? rndX : 1);
             int rndY = random.Next(-25, 25);
             MoveY = (rndY != 0 ? rndY : 1);
-
+            Count++;
         }
+
+        public static int Count { get => count; set => count = value; }
 
         //メソッド
         public override void Move() {
@@ -36,6 +41,8 @@ namespace BallApp {
 
             PosX += MoveX;
             PosY += MoveY;
+
+
         }
     }
 }
