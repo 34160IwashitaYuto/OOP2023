@@ -34,7 +34,7 @@ namespace ProductSample {
             #endregion
 
 
-
+            string[] DayOfWeekjp = {"日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日" };
 
             Console.WriteLine("誕生日を入力");
             Console.Write("西暦:");
@@ -51,6 +51,7 @@ namespace ProductSample {
             TimeSpan timespan = date - barthday;
             Console.WriteLine("あなたは生まれてから"+timespan.Days+"日です");
 
+            Console.WriteLine(DayOfWeekjp[(int)barthday.DayOfWeek]);
 
         }
     }
