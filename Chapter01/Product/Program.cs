@@ -47,7 +47,9 @@ namespace ProductSample {
             DateTime date = DateTime.Today;
             DateTime barthday = new DateTime(Anno_Domini, Month, Day);
 
-            Console.Write(date - barthday);
+
+            TimeSpan timespan = date - barthday;
+            Console.WriteLine("あなたは生まれてから"+timespan.Days+"日です");
 
 
         }
