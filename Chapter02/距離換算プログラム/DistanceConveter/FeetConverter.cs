@@ -9,7 +9,7 @@ namespace DistanceConveter {
     public class FeetConverter {
         
         //メートルからフィート
-        public static double FromMeter(int meter) {
+        public double FromMeter(int meter) {
             return meter / 0.3048;
 
         }
