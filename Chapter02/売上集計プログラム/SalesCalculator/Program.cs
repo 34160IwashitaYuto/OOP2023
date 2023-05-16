@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 namespace SalesCalculator {
     class Program {
         static void Main(string[] args) {
-            SalesCounter sales = new SalesCounter((@"data\sales.csv"));
-            Dictionary<string, int> amountPerStor = sales.GetPerStoreSales();
-            foreach(KeyValuePair<string,int> obj in amountPerStor)
+            var sales = new SalesCounter(@"data\sales.csv");
+            var amountPerStor = sales.GetPerStoreSales();
+            foreach(var obj in amountPerStor)
             {
                 Console.WriteLine("{0}{1:C}", obj.Key, obj.Value);
             }
