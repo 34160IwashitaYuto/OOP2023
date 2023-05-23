@@ -12,7 +12,16 @@ namespace Exercise01 {
 
             // 3.1.1
             Exercise1_1(numbers);
-            Console.WriteLine("-----");
+            var exists = numbers.Exists(n => n % 8 == 0 || n % 9 == 0);
+            if(exists)
+            {
+                Console.WriteLine("存在します");
+            }
+            else
+            {
+                Console.WriteLine("存在しません");
+            }
+            
 
             // 3.1.2
             Exercise1_2(numbers);
