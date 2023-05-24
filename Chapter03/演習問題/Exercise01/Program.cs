@@ -25,6 +25,8 @@ namespace Exercise01 {
 
             // 3.1.2
             Exercise1_2(numbers);
+            var quotient = numbers.ConvertAll(n => n / 2.0);
+            quotient.ForEach(s => Console.WriteLine(s));
             Console.WriteLine("-----");
 
             // 3.1.3
