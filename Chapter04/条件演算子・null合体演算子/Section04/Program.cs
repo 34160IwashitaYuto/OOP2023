@@ -15,6 +15,25 @@ namespace Section04 {
             var num = list.Contains(key) ? 1 : 0;   //条件演算子・三項演算子
             Console.WriteLine(num);
             #endregion
+
+            #region null合体演算子
+            string code = "12345";
+            var massage = GetmAssage(code) ?? DefaultMassage();
+            Console.WriteLine(massage);
+            #endregion
+
         }
+
+        private static object GetmAssage(object code) {
+            return 123;
+
+        }
+
+        private static object DefaultMassage() {
+            return "Default MAssage";
+        }
+
+
+
     }
 }
