@@ -10,7 +10,13 @@ namespace Exercise02 {
         static void Main(string[] args) {
 
             var ym = new YearMonth(2023, 5);
-            bool c21 = ym.Is21Century;
+            var c21 = ym.Is21Century;
+            var ymNextMonth = ym.AddOneMonth();
+
+
+            Console.WriteLine(ym);  //○○○○年△日
+            Console.WriteLine(ymNextMonth); //○○○○年△日
+
         }
     }
 }
