@@ -26,8 +26,16 @@ namespace Exercise03 {
 
 
         private static void Exercise3_1(string text) {
-            var contains = text.Contains(" ");
-            Console.WriteLine(contains);
+            int cnt = 0;
+            char ch = ' ';
+            int freq = text.Count(f => (f == ch));
+            //var contains = text.Contains(" ");
+            //if (true)
+            //{
+             //   cnt += 1;
+            //}
+ 
+            Console.WriteLine("空白数:" + freq);
 
         }
 
@@ -37,7 +45,13 @@ namespace Exercise03 {
         }
 
         private static void Exercise3_3(string text) {
-            
+            foreach (var c in text)
+            {
+                
+            }
+
+
+            //Console.WriteLine("単語数:" + cnt);
         }
 
         private static void Exercise3_4(string text) {
