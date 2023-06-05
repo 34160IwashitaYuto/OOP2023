@@ -31,10 +31,12 @@ namespace Exercise03 {
 
             //Console.WriteLine("空白数:" + freq);
 
-            //var spaces = text.Contains(' ');
-            //Console.WriteLine("空白数:{0}", spaces);
+            int spaces = text.Count(c=> c == ' ');
+            Console.WriteLine("空白数:{0}", spaces);
 
-            Console.WriteLine(text.Count(c=>c==' '));
+            //Console.WriteLine(text.Count(c=>c==' '));
+
+
 
         }
 
@@ -49,11 +51,26 @@ namespace Exercise03 {
         }
 
         private static void Exercise3_4(string text) {
-            
+            var words = text.Split(' ').Where(word => word.Length <= 4);
+            foreach (var word in words)
+            {
+                Console.WriteLine(word);
+            }
         }
 
         private static void Exercise3_5(string text) {
-            
+            var array = text.Split(' ').ToArray();
+
+            var sb = new StringBuilder();
+            sb.Append(array[0]);
+            foreach(var word in array.Skip(1))
+            {
+                sb.Append(word);
+                sb.Append(' ');
+            }
+            var createWords = sb.ToString();
+            Console.WriteLine(createWords);
+
         }
     }
 }
