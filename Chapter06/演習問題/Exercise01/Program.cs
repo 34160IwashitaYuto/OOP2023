@@ -34,7 +34,7 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_2(int[] numbers) {
-            int[] lastN = numbers.Skip(numbers.Length - 2).ToArray();
+            var lastN = numbers.Skip(numbers.Length - 2).ToArray();
 
             foreach (int x in lastN)
             {
@@ -43,6 +43,8 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_3(int[] numbers) {
+            var result = numbers.Select(n => n.ToString()).ToArray();
+            Console.WriteLine(String.Join(", ", result));
         }
 
         private static void Exercise1_4(int[] numbers) {
