@@ -34,6 +34,12 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_2(int[] numbers) {
+            int[] lastN = numbers.Skip(numbers.Length - 2).ToArray();
+
+            foreach (int x in lastN)
+            {
+                Console.WriteLine(x);
+            }
         }
 
         private static void Exercise1_3(int[] numbers) {
