@@ -43,14 +43,24 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_3(int[] numbers) {
-            var result = numbers.Select(n => n.ToString()).ToArray();
-            Console.WriteLine(String.Join(", ", result));
+            //var result = numbers.Select(n => n.ToString()).ToArray();
+            //Console.WriteLine(String.Join(", ", result));
+
+            var strs = numbers.Select(n => n.ToString());
+            foreach (var n in strs)
+            {
+                Console.WriteLine(n);
+            }
         }
 
         private static void Exercise1_4(int[] numbers) {
+            foreach (var n in numbers.OrderBy(n => n).Take(3))
+                Console.WriteLine(n);
         }
 
         private static void Exercise1_5(int[] numbers) {
+            var count = numbers.Distinct().Count(n => n > 10);
+            Console.WriteLine(count);
         }
     }
 }

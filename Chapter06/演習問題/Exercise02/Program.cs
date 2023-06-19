@@ -41,14 +41,51 @@ namespace Exercise02 {
 
            
         }
+
+        private static void Exercise2_1(List<Book> books) {
+            var book = books.Where(b => b.Title == "ワンダフル・C#ライフ");
+            foreach (var item in book)
+            {
+                Console.WriteLine("{0}  {1}",item.Price,item.Pages);
+            }
+        }
+
+        private static void Exercise2_2(List<Book> books) {
+            var count = books.Count(n => n.Title.Contains("C#"));
+            Console.WriteLine(count);
+        }
+
+        private static void Exercise2_3(List<Book> books) {
+            var count = books.Where(b => b.Title.Contains("C#")).Average(b => b.Pages);
+            Console.WriteLine(count);
+
+        }
+
+        private static void Exercise2_4(List<Book> books) {
+            var book = books.FirstOrDefault(b => b.Price >= 4000);
+            if (book != null)
+            {
+                Console.WriteLine(book.Title);
+            }
+        }
+
+
+        private static void Exercise2_5(List<Book> books) {
+
+        }
+
+        private static void Exercise2_6(List<Book> books) {
+
+        }
+
         private static void Exercise2_7(List<Book> books) {
-            throw new NotImplementedException();
+
         }
     }
 
     class Book {
         public string Title { get; set; }
         public int Price { get; set; }
-        public int Peage { get; set; }
+        public int Pages { get; set; }
     }
 }
