@@ -24,15 +24,28 @@ namespace Section02 {
                 Console.Write("人口:");
                 population = int.Parse(Console.ReadLine());
 
-                
+                //市町村インスタンスの生成
+                var cityInfo = new CityInfo
+                {
+                    City = city,
+                    Population = population,
+                };
 
+                //県名が未登録
+                if (!prefDict.ContainsKey(pref))
+                {
+                    prefDict[pref] = new List<CityInfo>();  //既に県名が未登録ならリスト作成
+                }
+                prefDict[pref].Add(cityInfo);
+            }
                 //登録処理
                 //prefDict[pref] = new CityInfo
                 //{
                 //    City = city,
                 //    Population = population,
                 //};
-            }
+
+
             Console.WriteLine();
             Console.WriteLine("1:一覧表示,2:県名指定");
             Console.Write(">");
@@ -58,7 +71,7 @@ namespace Section02 {
                 var inputPref = Console.ReadLine();
                 foreach (var item in prefDict[inputPref])
                 {
-                Console.WriteLine("{0}(人口:{2}人)", item.City,item.Population);
+                Console.WriteLine("{0}市(人口:{1}人)", item.City,item.Population);
 
                 }
             }
