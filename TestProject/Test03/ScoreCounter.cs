@@ -23,9 +23,9 @@ namespace Test03 {
                 var items = line.Split(',');   //区切りで項目別に分ける
                 var subject = new Student
                 {
-                    Name = items[0],
-                    Subject = items[1],
-                    Score = int.Parse(items[2])
+                    Name = items[0],//学生の名前
+                    Subject = items[1],//科目名
+                    Score = int.Parse(items[2])//点数
                 };
                 score.Add(subject);
             }
@@ -42,15 +42,15 @@ namespace Test03 {
         //メソッドの概要： 
         public IDictionary<string, int> GetPerStudentScore() {
             var dict = new SortedDictionary<string, int>();
-            foreach (var score in _score)
+            foreach (var score in _score)   //オブジェクトの取り出し
             {
+                //集計
                 if (dict.ContainsKey(score.Name))
                     dict[score.Name] += score.Score;    //学生の名前が既に存在する
                 else
                     dict[score.Name] = score.Score;     //学生の名が存在しない
 
             }
-            
             return dict;
 
 

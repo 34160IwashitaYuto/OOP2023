@@ -17,13 +17,15 @@ namespace Exercise01 {
         }
 
         private static void DisplayDatePattern1(DateTime dateTime) {
-            var str = string.Format("{0}/{1,2}/{2,2} {3}:{4}", dateTime.Year, dateTime.Month, dateTime.Day, dateTime.Hour, dateTime.Minute);
-            Console.WriteLine(str);
+            //var str = string.Format("{0}/{1,2}/{2,2} {3}:{4}", dateTime.Year, dateTime.Month, dateTime.Day, dateTime.Hour, dateTime.Minute);
+            var s1 = dateTime.ToString("yyyy/MM/dd　hh:mm");
+            Console.WriteLine(s1);
         }
 
         private static void DisplayDatePattern2(DateTime dateTime) {
-            var str = string.Format("{0}年{1,2}月{2,2}日 {3}時{4}分{5}秒", dateTime.Year, dateTime.Month, dateTime.Day, dateTime.Hour, dateTime.Minute,dateTime.Second);
-            Console.WriteLine(str);
+            //var str = string.Format("{0}年{1,2}月{2,2}日 {3}時{4}分{5}秒", dateTime.Year, dateTime.Month, dateTime.Day, dateTime.Hour, dateTime.Minute,dateTime.Second);
+            var s2 = dateTime.ToString("yyyy年MM月dd日　HH時mm分ss秒");
+            Console.WriteLine(s2);
         }
 
         private static void DisplayDatePattern3(DateTime dateTime) {
@@ -37,7 +39,9 @@ namespace Exercise01 {
         }
 
         private static void DisplayDatePattern3_2(DateTime dateTime) {
-            
+            var culture = new CultureInfo("ja-JP");
+            culture.DateTimeFormat.Calendar = new JapaneseCalendar();
+            var dateStr = dateTime.ToString("ggyy年MM月dd日（dddd）",culture);
         }
     }
 }

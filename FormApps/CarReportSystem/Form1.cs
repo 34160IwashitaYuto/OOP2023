@@ -7,12 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace CarReportSystem {
     public partial class Form1 : Form {
+
+        private int mode = 0;
         //管理用データ
         BindingList<CarReport> CarReports = new BindingList<CarReport>();
 
+        //設定情報保存用オブジェクト
+        Settings settings = new Settings(); 
 
         public Form1() {
             InitializeComponent();
@@ -128,7 +134,16 @@ namespace CarReportSystem {
         private void Form1_Load2(object sender, EventArgs e) {
             dgvCarReports.Columns[5].Visible = false;   // 画像項目非表示
             btDeleteReport.Enabled = false; //マスクする
+
+            //設定ファイルを逆シリアル化して背景を設定
+            using (var reader = XmlReader.Create("settings.xml"))
+            {
+                var serializer = new XmlSerializer(typeof(Settings));
+                settings = serializer.Deserialize(reader) as Settings;
+                BackColor = Color.FromArgb(settings.MainFormColor);
+            }
         }
+
 
         //削除ボタンイベントハンドラ
         private void btDeleteReport_Click(object sender,EventArgs e) {
@@ -183,6 +198,28 @@ namespace CarReportSystem {
             pbCarImage.Image = null;
         }
 
-        
+        private void カラーToolStripMenuItem_Click(object sender, EventArgs e) {
+            if (cdColor.ShowDialog() == DialogResult.OK)
+            {
+                BackColor = cdColor.Color;
+                settings.MainFormColor = cdColor.Color.ToArgb();
+            }
+        }
+
+        private void btScaleChange_Click(object sender, EventArgs e) {
+
+            mode = mode < 4 ? ++mode : 0;
+            pbCarImage.SizeMode = (PictureBoxSizeMode)mode;
+
+        }
+
+        private void Form1_FormClosed(object sender ,FormClosedEventArgs e) {
+            //設定ファイルのシリアル化
+            using(var writer = XmlWriter.Create("settings.xml"))
+            {
+                var serializer = new XmlSerializer(settings.GetType());
+                serializer.Serialize(writer.Settings);
+            }
+        }
     }
 }
