@@ -153,6 +153,8 @@ namespace CarReportSystem {
             btDeleteReport.Enabled = true;  //削除ボタン
                 
         }
+
+        //修正ボタンイベントハンドラ
         private void btModifyReport_Click(object sender,EventArgs e) {
             if (dgvCarReports.Rows.Count != 0)
             {
@@ -161,13 +163,13 @@ namespace CarReportSystem {
                 CarReports[dgvCarReports.CurrentRow.Index].Maker = GetSelectedMaker();
                 CarReports[dgvCarReports.CurrentRow.Index].CarName = cbCarName.Text;
                 CarReports[dgvCarReports.CurrentRow.Index].Report = tbReport.Text;
-                dgvCarReports.Refresh();
+                dgvCarReports.Refresh();    //一覧更新
 
             }
         }
 
         
-
+        //.終了メニュー選択時のイベントハンドラ
         private void 終了XToolStripMenuItem_Click(object sender, EventArgs e) {
             Application.Exit();
         }
@@ -176,5 +178,11 @@ namespace CarReportSystem {
             var vf = new VersionForm();
             vf.ShowDialog();    //モーダイヤログとして表示
         }
+
+        private void btImageDelete_Click(object sender , EventArgs s) {
+            pbCarImage.Image = null;
+        }
+
+        
     }
 }
