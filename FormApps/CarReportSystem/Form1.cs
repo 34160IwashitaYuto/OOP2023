@@ -27,7 +27,7 @@ namespace CarReportSystem {
 
         //ステータスラベルのテキスト表示・非表示
         private void statasLabelDisp(string msg = "") {
-            tsInfoText.Text = msg;
+            tsTimeDisp.Text = msg;
         }
 
 
@@ -36,10 +36,10 @@ namespace CarReportSystem {
             statasLabelDisp();
             if (cbAuthor.Text.Equals(""))
             {
-                tsInfoText.Text = "記録者を入力してください";
+                tsTimeDisp.Text = "記録者を入力してください";
                 return;
             }else if(cbCarName.Text.Equals("")){
-                tsInfoText.Text = "車名を入力してください";
+                tsTimeDisp.Text = "車名を入力してください";
                 return;
             }
             else
@@ -127,6 +127,11 @@ namespace CarReportSystem {
         }
 
         private void Form1_Load(object sender,EventArgs e) {
+
+            tsInfoText.Text = "";
+            tsTimeDisp.Text = DateTime.Now.ToString("HH時mm分ss秒");
+            tmTimeUpdate.Start();
+
             dgvCarReports.Columns[5].Visible = false;   // 画像項目非表示
             btModifyReport.Enabled = false; //マスクする
         }
@@ -218,8 +223,12 @@ namespace CarReportSystem {
             using(var writer = XmlWriter.Create("settings.xml"))
             {
                 var serializer = new XmlSerializer(settings.GetType());
-                serializer.Serialize(writer.Settings);
+                serializer.Serialize(writer,settings);
             }
+        }
+
+        private void tmTimeUpdate_Tick(object sender, EventArgs e) {
+
         }
     }
 }

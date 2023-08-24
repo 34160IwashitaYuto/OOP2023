@@ -25,6 +25,7 @@ namespace CarReportSystem {
         /// コード エディターで変更しないでください。
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
@@ -60,12 +61,15 @@ namespace CarReportSystem {
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.終了XToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.編集ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cdColor = new System.Windows.Forms.ToolStripMenuItem();
+            this.SetColor = new System.Windows.Forms.ToolStripMenuItem();
             this.ヘルプToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.バージョン情報ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ofdImageFileOpen = new System.Windows.Forms.OpenFileDialog();
             this.statusDisp = new System.Windows.Forms.StatusStrip();
+            this.tsTimeDisp = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsInfoText = new System.Windows.Forms.ToolStripStatusLabel();
+            this.cdColor = new System.Windows.Forms.ColorDialog();
+            this.tmTimeUpdate = new System.Windows.Forms.Timer(this.components);
             this.gbMaker.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarReports)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCarImage)).BeginInit();
@@ -429,16 +433,16 @@ namespace CarReportSystem {
             // 編集ToolStripMenuItem
             // 
             this.編集ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cdColor});
+            this.SetColor});
             this.編集ToolStripMenuItem.Name = "編集ToolStripMenuItem";
             this.編集ToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.編集ToolStripMenuItem.Text = "編集(&E)";
             // 
-            // cdColor
+            // SetColor
             // 
-            this.cdColor.Name = "cdColor";
-            this.cdColor.Size = new System.Drawing.Size(119, 22);
-            this.cdColor.Text = "色設定...";
+            this.SetColor.Name = "SetColor";
+            this.SetColor.Size = new System.Drawing.Size(119, 22);
+            this.SetColor.Text = "色設定...";
             // 
             // ヘルプToolStripMenuItem
             // 
@@ -462,6 +466,7 @@ namespace CarReportSystem {
             // statusDisp
             // 
             this.statusDisp.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsTimeDisp,
             this.tsInfoText});
             this.statusDisp.Location = new System.Drawing.Point(0, 597);
             this.statusDisp.Name = "statusDisp";
@@ -470,11 +475,21 @@ namespace CarReportSystem {
             this.statusDisp.TabIndex = 16;
             this.statusDisp.Text = "statusStrip1";
             // 
+            // tsTimeDisp
+            // 
+            this.tsTimeDisp.Name = "tsTimeDisp";
+            this.tsTimeDisp.Size = new System.Drawing.Size(55, 17);
+            this.tsTimeDisp.Text = "時刻表示";
+            // 
             // tsInfoText
             // 
             this.tsInfoText.Name = "tsInfoText";
-            this.tsInfoText.Size = new System.Drawing.Size(118, 17);
-            this.tsInfoText.Text = "toolStripStatusLabel1";
+            this.tsInfoText.Size = new System.Drawing.Size(82, 17);
+            this.tsInfoText.Text = "インフォメーション";
+            // 
+            // tmTimeUpdate
+            // 
+            this.tmTimeUpdate.Tick += new System.EventHandler(this.tmTimeUpdate_Tick);
             // 
             // Form1
             // 
@@ -557,11 +572,14 @@ namespace CarReportSystem {
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.OpenFileDialog ofdImageFileOpen;
         private System.Windows.Forms.StatusStrip statusDisp;
-        private System.Windows.Forms.ToolStripStatusLabel tsInfoText;
+        private System.Windows.Forms.ToolStripStatusLabel tsTimeDisp;
         private System.Windows.Forms.ToolStripMenuItem 編集ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cdColor;
+        private System.Windows.Forms.ToolStripMenuItem SetColor;
         private System.Windows.Forms.ToolStripMenuItem ヘルプToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem バージョン情報ToolStripMenuItem;
+        private System.Windows.Forms.ColorDialog cdColor;
+        private System.Windows.Forms.ToolStripStatusLabel tsInfoText;
+        private System.Windows.Forms.Timer tmTimeUpdate;
     }
 }
 
