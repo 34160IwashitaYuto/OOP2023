@@ -332,7 +332,7 @@ namespace CarReportSystem {
             // 
             this.pbCarImage.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pbCarImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbCarImage.Location = new System.Drawing.Point(389, 94);
+            this.pbCarImage.Location = new System.Drawing.Point(389, 82);
             this.pbCarImage.Name = "pbCarImage";
             this.pbCarImage.Size = new System.Drawing.Size(231, 189);
             this.pbCarImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -445,7 +445,7 @@ namespace CarReportSystem {
             // SetColor
             // 
             this.SetColor.Name = "SetColor";
-            this.SetColor.Size = new System.Drawing.Size(180, 22);
+            this.SetColor.Size = new System.Drawing.Size(119, 22);
             this.SetColor.Text = "色設定...";
             this.SetColor.Click += new System.EventHandler(this.SetColor_Click);
             // 
@@ -529,7 +529,6 @@ namespace CarReportSystem {
             this.Controls.Add(this.menuItems);
             this.MainMenuStrip = this.menuItems;
             this.Name = "Form1";
-            this.Text = "カーレポート管理システム";
             this.gbMaker.ResumeLayout(false);
             this.gbMaker.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarReports)).EndInit();
