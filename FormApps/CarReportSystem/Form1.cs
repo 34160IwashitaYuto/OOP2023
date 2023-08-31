@@ -148,8 +148,7 @@ namespace CarReportSystem {
             dgvCarReports.Columns[5].Visible = false;   // 画像項目非表示
             btModifyReport.Enabled = false; //マスクする
 
-            dgvCarReports.Columns[5].Visible = false;   // 画像項目非表示
-            btDeleteReport.Enabled = false; //マスクする
+            
 
             try {
                 //設定ファイルを逆シリアル化して背景を設定
