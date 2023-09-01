@@ -142,7 +142,7 @@ namespace CarReportSystem {
             tsTimeDisp.Text = DateTime.Now.ToString("HH時mm分ss秒");
             tmTimeUpdate.Start();
 
-            dgvCarReports.RowsDefaultCellStyle.BackColor = Color.AliceBlue;
+            dgvCarReports.RowsDefaultCellStyle.BackColor = Color.AliceBlue;//全体に色設定
             dgvCarReports.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;  //奇数行の色を上書き設定
 
             dgvCarReports.Columns[5].Visible = false;   // 画像項目非表示
