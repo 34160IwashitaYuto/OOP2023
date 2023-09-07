@@ -111,7 +111,17 @@ namespace Exercise01 {
                 serializer.WriteObject(stream, emp);
             }
         }
-            
-
     }
+
+    [DataContract]
+    public class Employee2 {
+        public int Id { get; set; }
+
+        [DataMember(Name="name")]
+        public string Name { get; set; }
+
+        [DataMember(Name="hireDate")]
+        public DateTime HireDate { get; set; }
+    }
+   
 }
