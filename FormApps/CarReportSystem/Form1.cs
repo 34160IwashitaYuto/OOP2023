@@ -49,23 +49,39 @@ namespace CarReportSystem {
             {
                 statasLabelDisp(""); 
             }
-                
-            var CarReport = new CarReport
-            {
-                Date = dtpDate.Value,
-                Author = cbAuthor.Text,
-                Maker = GetSelectedMaker(),
-                CarName = cbCarName.Text,
-                Report = tbReport.Text,
-                CarImage = pbCarImage.Image,
-            };
 
-            CarReports.Add(CarReport);
+            DataRow newRow = infosys202318DataSet.CarReportTable.NewRow();
 
-            btModifyReport.Enabled = true;
-            btDeleteReport.Enabled = true;
+            newRow[1] = dtpDate.Value;
+            newRow[2] = cbAuthor.Text;
+            newRow[3] = GetSelectedMaker();
+            newRow[4] = cbCarName.Text;
+            newRow[5] = tbReport.Text;
+            newRow[6] = pbCarImage.Image;
 
-           
+            infosys202318DataSet.CarReportTable.Rows.Add(newRow);
+            this.carReportTableTableAdapter.Update(infosys202318DataSet.CarReportTable);
+
+            setCbAuthor(cbAuthor.Text);     //記録者コンボボックスの履歴登録処理
+            setCbCarName(cbCarName.Text);   //車名コンボボックスの履歴登録処理
+
+            editItemsClear();       //項目クリア処理
+
+            //var CarReport = new CarReport
+            //{
+            //    Date = dtpDate.Value,
+            //    Author = cbAuthor.Text,
+            //    Maker = GetSelectedMaker(),
+            //    CarName = cbCarName.Text,
+            //    Report = tbReport.Text,
+            //    CarImage = pbCarImage.Image,
+            //};
+            //CarReports.Add(CarReport);
+
+            //btModifyReport.Enabled = true;
+            //btDeleteReport.Enabled = true;
+
+
         }
     //記録者コンボボックスの履歴登録処理
         private void setCbAuthor(string author) {
@@ -82,6 +98,19 @@ namespace CarReportSystem {
                 cbCarName.Items.Add(cbCarName.Text);
             }
 
+        }
+
+        //項目クリア処理
+        private void editItemsClear() {
+            cbAuthor.Text = "";
+            setSelectedMaker("トヨタ");
+            cbCarName.Text = "";
+            tbReport.Text = "";
+            pbCarImage.Image = null;
+
+            dgvCarReports.ClearSelection();     //選択解除
+            btModifyReport.Enabled = false;     //修正ボタン
+            btDeleteReport.Enabled = false;     //削除ボタン
         }
 
         //選択されているメーカーを返却
@@ -168,12 +197,9 @@ namespace CarReportSystem {
 
         //削除ボタンイベントハンドラ
         private void btDeleteReport_Click(object sender,EventArgs e) {
-            CarReports.RemoveAt(dgvCarReports.CurrentRow.Index);
-            if(CarReports.Count() == 0){
-                btDeleteReport.Enabled = false;
-                btModifyReport.Enabled = false; 
-            }
-            
+            dgvCarReports.Rows.RemoveAt(dgvCarReports.CurrentRow.Index);
+            carReportTableTableAdapter.Update(infosys202318DataSet);
+            editItemsClear();            
         }
 
         //レコートの選択時
@@ -201,7 +227,6 @@ namespace CarReportSystem {
             //CarReports[dgvCarReports.CurrentRow.Index].Report = tbReport.Text;
             //dgvCarReports.Refresh();
             //}
-
 
             this.Validate();
             this.carReportTableBindingSource.EndEdit();
@@ -337,10 +362,8 @@ namespace CarReportSystem {
         }
 
 
-        private void carReportTableBindingNavigatorSaveItem_Click(object sender, EventArgs e) {
-            this.Validate();
+        private void carReportTableBindingNavigatorSaveItem_Click(object sender, EventArgs e) { 
             this.carReportTableBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.infosys202318DataSet);
 
         }
 
