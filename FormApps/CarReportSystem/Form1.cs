@@ -83,7 +83,7 @@ namespace CarReportSystem {
 
 
         }
-    //記録者コンボボックスの履歴登録処理
+        //記録者コンボボックスの履歴登録処理
         private void setCbAuthor(string author) {
             if (!cbAuthor.Items.Contains(author))
                     {
@@ -93,9 +93,9 @@ namespace CarReportSystem {
 
 
         //車名コンボボックスの履歴登録処理
-        private void setCbCarName(string author) {
-            if (!cbCarName.Items.Contains(cbCarName.Text)) {
-                cbCarName.Items.Add(cbCarName.Text);
+        private void setCbCarName(string carname) {
+            if (!cbCarName.Items.Contains(carname)) {
+                cbCarName.Items.Add(carname);
             }
 
         }
@@ -333,8 +333,9 @@ namespace CarReportSystem {
                 cbCarName.Text = dgvCarReports.CurrentRow.Cells[4].Value.ToString();
                 tbReport.Text = dgvCarReports.CurrentRow.Cells[5].Value.ToString();
 
-                pbCarImage.Image = !dgvCarReports.CurrentRow.Cells[6].Value.Equals(DBNull.Value) ?
-                                    ByteArrayToImage((Byte[])dgvCarReports.CurrentRow.Cells[6].Value) : null;
+                pbCarImage.Image = !dgvCarReports.CurrentRow.Cells[6].Value.Equals(DBNull.Value)
+                                    && ((Byte[])dgvCarReports.CurrentRow.Cells[6].Value).Length != 0 ?
+                                    ByteArrayToImage((Byte[])dgvCarReports.CurrentRow.Cells[6].Value): null;
 
                 //if (!dgvCarReports.CurrentRow.Cells[6].Value.Equals(DBNull.Value)) {
                 //    pbCarImage.Image = ByteArrayToImage((Byte[])dgvCarReports.CurrentRow.Cells[6].Value);
@@ -372,8 +373,11 @@ namespace CarReportSystem {
             // TODO: このコード行はデータを 'infosys202318DataSet.CarReportTable' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
             this.carReportTableTableAdapter.Fill(this.infosys202318DataSet.CarReportTable);
             dgvCarReports.ClearSelection(); //選択解除
-        }
 
-        
+            foreach (var carReport in infosys202318DataSet.CarReportTable) {
+                setCbAuthor(carReport.Author);
+                setCbCarName(carReport.CarName);
+            }
+        }
     }
 }
