@@ -303,6 +303,7 @@ namespace CarReportSystem {
         ImageConverter imgconv = new ImageConverter();
         Image img = (Image)imgconv.ConvertFrom(b);
         return img;
+
     }
 
     // Imageオブジェクトをバイト配列に変換
@@ -330,5 +331,15 @@ namespace CarReportSystem {
             setCbCarName(carReport.CarName);
         }
     }
-}
+
+        private void btAuthorSearch_Click(object sender, EventArgs e) { //記録者で検索
+            carReportTableTableAdapter.FillByAuthor(this.infosys202318DataSet.CarReportTable, tbAuthorSearch.Text);
+        }
+
+        private void btCarnameSearch_Click(object sender, EventArgs e) { //車名で検索
+            carReportTableTableAdapter.FillByCarName(this.infosys202318DataSet.CarReportTable, tbCarnameSearch.Text);
+        }
+
+        
+    }
 }
