@@ -93,6 +93,7 @@ namespace CarReportSystem {
             this.carReportTableTableAdapter = new CarReportSystem.infosys202318DataSetTableAdapters.CarReportTableTableAdapter();
             this.tableAdapterManager = new CarReportSystem.infosys202318DataSetTableAdapters.TableAdapterManager();
             this.dtpDateSearch2 = new System.Windows.Forms.DateTimePicker();
+            this.btReset = new System.Windows.Forms.Button();
             this.gbMaker.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarReports)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carReportTableBindingSource)).BeginInit();
@@ -597,6 +598,7 @@ namespace CarReportSystem {
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btReset);
             this.groupBox1.Controls.Add(this.dtpDateSearch2);
             this.groupBox1.Controls.Add(this.dtpDateSearch);
             this.groupBox1.Controls.Add(this.btDateSearch);
@@ -699,6 +701,15 @@ namespace CarReportSystem {
             this.dtpDateSearch2.Name = "dtpDateSearch2";
             this.dtpDateSearch2.Size = new System.Drawing.Size(110, 19);
             this.dtpDateSearch2.TabIndex = 26;
+            // 
+            // btReset
+            // 
+            this.btReset.Location = new System.Drawing.Point(198, 201);
+            this.btReset.Name = "btReset";
+            this.btReset.Size = new System.Drawing.Size(75, 23);
+            this.btReset.TabIndex = 27;
+            this.btReset.Text = "リセット";
+            this.btReset.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -817,6 +828,7 @@ namespace CarReportSystem {
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker dtpDateSearch;
         private System.Windows.Forms.DateTimePicker dtpDateSearch2;
+        private System.Windows.Forms.Button btReset;
     }
 }
 
