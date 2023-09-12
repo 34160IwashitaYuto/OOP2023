@@ -1033,10 +1033,11 @@ SELECT Id, Date, Author, Maker, CarName, Report, Image FROM CarReportTable WHERE
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = "SELECT                      Id, Date, Author, Maker, CarName, Report, Image\r\nFROM" +
-                "                         CarReportTable\r\nWHERE                       (Date = @da" +
-                "te)";
+                "                         CarReportTable\r\nWHERE                       (Date BETWE" +
+                "EN @startdate AND @enddate)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@startdate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@enddate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1105,13 +1106,19 @@ SELECT Id, Date, Author, Maker, CarName, Report, Image FROM CarReportTable WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByDate(infosys202318DataSet.CarReportTableDataTable dataTable, string date) {
+        public virtual int FillByDate(infosys202318DataSet.CarReportTableDataTable dataTable, string startdate, string enddate) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
-            if ((date == null)) {
+            if ((startdate == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(date));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(startdate));
+            }
+            if ((enddate == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(enddate));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();

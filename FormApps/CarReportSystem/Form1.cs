@@ -341,7 +341,7 @@ namespace CarReportSystem {
         }
 
         private void btDateSearch_Click(object sender, EventArgs e) {   //日付で検索
-            carReportTableTableAdapter.FillByDate(this.infosys202318DataSet.CarReportTable, dtpDateSearch.Text);
+            carReportTableTableAdapter.FillByDate(this.infosys202318DataSet.CarReportTable, dtpDateSearch.Text,dtpDateSearch2.Text);
         }
     }
 }
