@@ -14,7 +14,7 @@ namespace CarReportSystem {
 
         private int mode = 0;
         //管理用データ
-        BindingList<CarReport> CarReports = new BindingList<CarReport>();
+        //BindingList<CarReport> CarReports = new BindingList<CarReport>();
 
         //設定情報保存用オブジェクト
         Settings settings = Settings.getInstance();
@@ -241,21 +241,21 @@ namespace CarReportSystem {
             tsTimeDisp.Text = DateTime.Now.ToString("yyyy年MM月HH時mm分ss秒");
         }
 
-        private void 保存ToolStripMenuItem_Click(object sender, EventArgs e) {
-            if (sfdCarRepoSave.ShowDialog() == DialogResult.OK) {
+        //private void 保存ToolStripMenuItem_Click(object sender, EventArgs e) {
+        //    if (sfdCarRepoSave.ShowDialog() == DialogResult.OK) {
 
-                try {
-                    //バイナリ形式でシリアル化
-                    var bf = new BinaryFormatter();
-                    using (FileStream fs = File.Open(sfdCarRepoSave.FileName, FileMode.Create)) {
-                        bf.Serialize(fs, CarReports);
-                    }
-                }
-                catch (Exception ex) {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-        }
+        //        try {
+        //            //バイナリ形式でシリアル化
+        //            var bf = new BinaryFormatter();
+        //            using (FileStream fs = File.Open(sfdCarRepoSave.FileName, FileMode.Create)) {
+        //                bf.Serialize(fs, CarReports);
+        //            }
+        //        }
+        //        catch (Exception ex) {
+        //            MessageBox.Show(ex.Message);
+        //        }
+        //    }
+        //}
 
         private void 開くToolStripMenuItem_Click(object sender, EventArgs e) {
             // TODO: このコード行はデータを 'infosys202318DataSet.CarReportTable' テーブルに読み込みます。
