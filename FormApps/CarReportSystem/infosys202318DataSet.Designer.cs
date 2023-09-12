@@ -1010,7 +1010,7 @@ SELECT Id, Date, Author, Maker, CarName, Report, Image FROM CarReportTable WHERE
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT                      Id, Date, Author, Maker, CarName, Report, Image\r\nFROM" +
@@ -1026,10 +1026,17 @@ SELECT Id, Date, Author, Maker, CarName, Report, Image FROM CarReportTable WHERE
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "SELECT                      Author, CarName, Date, Id, Image, Maker, Report\r\nFROM" +
-                "                         CarReportTable\r\nWHERE                       (CarName = " +
-                "N\'LINK %\' + @maker + N\'%\')";
+                "                         CarReportTable\r\nWHERE                       (CarName LI" +
+                "KE N\'%\' + @carname + N\'%\')";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@maker", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CarName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@carname", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CarName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT                      Id, Date, Author, Maker, CarName, Report, Image\r\nFROM" +
+                "                         CarReportTable\r\nWHERE                       (Date = @da" +
+                "te)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1079,13 +1086,32 @@ SELECT Id, Date, Author, Maker, CarName, Report, Image FROM CarReportTable WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByCarName(infosys202318DataSet.CarReportTableDataTable dataTable, string maker) {
+        public virtual int FillByCarName(infosys202318DataSet.CarReportTableDataTable dataTable, string carname) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((maker == null)) {
-                throw new global::System.ArgumentNullException("maker");
+            if ((carname == null)) {
+                throw new global::System.ArgumentNullException("carname");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(maker));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(carname));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByDate(infosys202318DataSet.CarReportTableDataTable dataTable, string date) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((date == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(date));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
