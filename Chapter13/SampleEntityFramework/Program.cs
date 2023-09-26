@@ -117,6 +117,7 @@ namespace SampleEntityFramework {
 
             }
         }
+
         private static void Exercise1_3() {
             using (var db = new BooksDbContext()) {
                 var books = db.Books.Where(b => b.Title.Length == db.Books.Max(x => x.Title.Length));
@@ -127,7 +128,12 @@ namespace SampleEntityFramework {
         }
 
         private static void Exercise1_4() {
-
+            using (var db = new BooksDbContext()) {
+                var books = db.Books.OrderBy(b => b.PublishedYear).Take(3);
+                foreach (var book in books.ToArray()) {
+                    Console.WriteLine($"{book.Title} {book.PublishedYear} {book.Author.Name}");
+                }
+            }
         }
 
         private static void Exercise1_5() {
