@@ -137,7 +137,19 @@ namespace SampleEntityFramework {
         }
 
         private static void Exercise1_5() {
+            using (var db = new BooksDbContext()) {
+                var authors = db.Authors.OrderByDescending(a => a.Birthday);
 
+
+
+                foreach (var author in authors.ToArray()) {
+                    Console.WriteLine($"{author.Name}");
+                    foreach (var book in author.Books) {
+                        Console.WriteLine($"{book.Title} {book.PublishedYear} {book.Author.Birthday}");
+                    }
+                    Console.WriteLine();
+                }
+            }
         }
 
         // List13-5
