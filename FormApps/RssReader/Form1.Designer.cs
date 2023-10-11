@@ -57,7 +57,6 @@ namespace RssReader {
             this.lbRssTitle.Name = "lbRssTitle";
             this.lbRssTitle.Size = new System.Drawing.Size(746, 184);
             this.lbRssTitle.TabIndex = 2;
-            this.lbRssTitle.Click += new System.EventHandler(this.lbRssTitle_Click);
             // 
             // wbBrowser
             // 
@@ -70,9 +69,14 @@ namespace RssReader {
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "https://news.yahoo.co.jp/rss/topics/top-picks.xml",
+            "https://news.yahoo.co.jp/rss/topics/domestic.xml",
+            "https://news.yahoo.co.jp/rss/topics/world.xml",
+            "https://news.yahoo.co.jp/rss/topics/business.xml"});
             this.comboBox1.Location = new System.Drawing.Point(31, 635);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 20);
+            this.comboBox1.Size = new System.Drawing.Size(170, 20);
             this.comboBox1.TabIndex = 4;
             // 
             // Form1
