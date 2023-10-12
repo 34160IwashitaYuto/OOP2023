@@ -35,7 +35,15 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_3() {
+            var groups = Library.Books.GroupBy(b => b.PublishedYear)
+                                      .Select(g => new { PublishedYear = g.Key,Count = g.Count()})
+                                      .OrderBy(x=>x.PublishedYear);
+            foreach (var item in groups) {
+                Console.WriteLine("{0}年 {1}冊",item.PublishedYear,item.Count);
+            }
         }
+
+
 
         private static void Exercise1_4() {
         }
