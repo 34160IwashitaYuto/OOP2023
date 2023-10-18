@@ -21,6 +21,7 @@ namespace DistanceConveter {
         //フィートからメートルを求める
         public static double ToMeter(int feet) {
             return feet * ratio;
+
         }
 
     }
