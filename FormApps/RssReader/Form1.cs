@@ -22,14 +22,14 @@ namespace RssReader {
 
         private void btGet_Click(object sender, EventArgs e) {
 
-            if(tbUrl.Text == "") {
+            if(comboBox1.Text == "") {
                 return;
             }
 
             lbRssTitle.Items.Clear();   //リストボックスクリア
 
             using (var wc = new WebClient()) {
-                var url = wc.OpenRead(tbUrl.Text);
+                var url = wc.OpenRead(comboBox1.Text);
 
 
                 XDocument xdoc = XDocument.Load(url);
@@ -46,7 +46,7 @@ namespace RssReader {
                 }
             }
 
-         }
+        }
 
         
     }

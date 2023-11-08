@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:CollarChecker"
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="900">
-    <Grid HorizontalAlignment="Left" Height="359" Margin="10,0,0,0" VerticalAlignment="Top" Width="880" >
-        <Label x:Name="colorArer" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="339" Width="262" Background="Black"/>
+    <Grid HorizontalAlignment="Left" Height="359" Margin="10,0,0,0" Width="880" >
+        <Label x:Name="colorArer" HorizontalAlignment="Left" Margin="10,10,10,10" Height="339" Width="262" Background="Black"/>
         <Grid HorizontalAlignment="Left" Height="371" VerticalAlignment="Top" Width="305" Margin="282,0,0,-12">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="35*"/>
