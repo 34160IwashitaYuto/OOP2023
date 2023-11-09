@@ -14,6 +14,7 @@ namespace RssReader {
     public partial class Form1 : Form {
         //取得データ保存用
         List<ItemData> ItemDatas = new List<ItemData>();
+        List<ItemData> nodes;
         
 
         public Form1() {
@@ -34,7 +35,7 @@ namespace RssReader {
 
                 XDocument xdoc = XDocument.Load(url);
 
-                var nodes = xdoc.Root.Descendants("item")
+                nodes = xdoc.Root.Descendants("item")
                                        .Select(x => new ItemData {
                                            Title = (string)x.Element("title"),
                                            Link = (string)x.Element("link")
@@ -48,6 +49,15 @@ namespace RssReader {
 
         }
 
-        
+        private void lbRssTitle_Click(object sender, EventArgs e) {
+            if (lbRssTitle.SelectedItem == null) return;
+            {
+                wbBrowser.Navigate((nodes[lbRssTitle.SelectedIndex]).Link);
+            }
+        }
+
+        private void CollectionButton_Click(object sender, EventArgs e) {
+            Collection.Items.Add(comboBox1.Text);
+        }
     }
 }

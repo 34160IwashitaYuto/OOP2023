@@ -29,11 +29,13 @@ namespace RssReader {
             this.wbBrowser = new System.Windows.Forms.WebBrowser();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.Collection = new System.Windows.Forms.ComboBox();
+            this.CollectionButton = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btGet
             // 
-            this.btGet.Location = new System.Drawing.Point(702, 12);
+            this.btGet.Location = new System.Drawing.Point(608, 12);
             this.btGet.Name = "btGet";
             this.btGet.Size = new System.Drawing.Size(75, 30);
             this.btGet.TabIndex = 1;
@@ -49,6 +51,7 @@ namespace RssReader {
             this.lbRssTitle.Name = "lbRssTitle";
             this.lbRssTitle.Size = new System.Drawing.Size(746, 184);
             this.lbRssTitle.TabIndex = 2;
+            this.lbRssTitle.Click += new System.EventHandler(this.lbRssTitle_Click);
             // 
             // wbBrowser
             // 
@@ -67,16 +70,34 @@ namespace RssReader {
             "https://news.yahoo.co.jp/rss/topics/world.xml"});
             this.comboBox1.Location = new System.Drawing.Point(31, 18);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(665, 20);
+            this.comboBox1.Size = new System.Drawing.Size(546, 20);
             this.comboBox1.TabIndex = 4;
             // 
             // Collection
             // 
             this.Collection.FormattingEnabled = true;
-            this.Collection.Location = new System.Drawing.Point(31, 648);
+            this.Collection.Location = new System.Drawing.Point(446, 657);
             this.Collection.Name = "Collection";
             this.Collection.Size = new System.Drawing.Size(331, 20);
             this.Collection.TabIndex = 5;
+            // 
+            // CollectionButton
+            // 
+            this.CollectionButton.Location = new System.Drawing.Point(698, 12);
+            this.CollectionButton.Name = "CollectionButton";
+            this.CollectionButton.Size = new System.Drawing.Size(79, 30);
+            this.CollectionButton.TabIndex = 6;
+            this.CollectionButton.Text = "お気に入り";
+            this.CollectionButton.UseVisualStyleBackColor = true;
+            this.CollectionButton.Click += new System.EventHandler(this.CollectionButton_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(446, 635);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(57, 19);
+            this.textBox1.TabIndex = 7;
+            this.textBox1.Text = "お気に入り";
             // 
             // Form1
             // 
@@ -84,6 +105,8 @@ namespace RssReader {
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 689);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.CollectionButton);
             this.Controls.Add(this.Collection);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.wbBrowser);
@@ -92,6 +115,7 @@ namespace RssReader {
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -101,6 +125,8 @@ namespace RssReader {
         private System.Windows.Forms.WebBrowser wbBrowser;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox Collection;
+        private System.Windows.Forms.Button CollectionButton;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
