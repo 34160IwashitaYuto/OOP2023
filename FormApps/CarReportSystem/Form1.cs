@@ -298,7 +298,5 @@ namespace CarReportSystem {
                 btDeleteReport.Enabled = true;  //削除ボタン
             }
         }
-
-
     }
 }

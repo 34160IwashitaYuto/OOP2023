@@ -54,7 +54,7 @@ namespace CollarChecker {
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
-            ListBox.Items.Add(new MyColor {
+            stockList.Items.Add(new MyColor {
                 Color = Color.FromRgb((byte)rSampleSlider.Value,
                                       (byte)gSampleSlider.Value,
                                       (byte)bSampleSlider.Value)
@@ -62,9 +62,20 @@ namespace CollarChecker {
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            
-
+            var data = (MyColor) stockList.Items[stockList.SelectedIndex];
+            ColorChanged(data.Color);
         }
 
+        private void Combobox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            var color = ((MyColor)(((ComboBox)sender).SelectedItem)).Color;
+            ColorChanged(color);
+        }
+
+        private void ColorChanged(Color color) {
+            colorArer.Background = new SolidColorBrush(color);
+            rSampleSlider.Value = color.R;
+            gSampleSlider.Value = color.G;
+            bSampleSlider.Value = color.B;
+        }
     }
 }

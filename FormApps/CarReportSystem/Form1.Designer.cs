@@ -72,6 +72,7 @@ namespace CarReportSystem {
             this.tmTimeUpdate = new System.Windows.Forms.Timer(this.components);
             this.ofdCarRepoOpen = new System.Windows.Forms.OpenFileDialog();
             this.sfdCarRepoSave = new System.Windows.Forms.SaveFileDialog();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.gbMaker.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarReports)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCarImage)).BeginInit();
@@ -474,7 +475,8 @@ namespace CarReportSystem {
             // 
             this.statusDisp.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsTimeDisp,
-            this.tsInfoText});
+            this.tsInfoText,
+            this.toolStripStatusLabel1});
             this.statusDisp.Location = new System.Drawing.Point(0, 597);
             this.statusDisp.Name = "statusDisp";
             this.statusDisp.Size = new System.Drawing.Size(704, 22);
@@ -501,6 +503,12 @@ namespace CarReportSystem {
             // ofdCarRepoOpen
             // 
             this.ofdCarRepoOpen.FileName = "openFileDialog1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
             // Form1
             // 
@@ -593,6 +601,7 @@ namespace CarReportSystem {
         private System.Windows.Forms.Timer tmTimeUpdate;
         private System.Windows.Forms.OpenFileDialog ofdCarRepoOpen;
         private System.Windows.Forms.SaveFileDialog sfdCarRepoSave;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
 
